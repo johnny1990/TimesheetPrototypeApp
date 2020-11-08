@@ -107,14 +107,6 @@
         format: 'DD/MM/YYYY HH:mm A'
     });
 
-    //$('#chkIsFullDay').change(function () {
-    //    if ($(this).is(':checked')) {
-    //        $('#divEndDate').hide();
-    //    }
-    //    else {
-    //        $('#divEndDate').show();
-    //    }
-    //});
 
     function openAddEditForm() {
         if (selectedEvent != null) {

@@ -3,8 +3,7 @@
     ViewBag.Title = "Index";
 }
 
-@*@var s = @User.Identity.Name.ToString();*@
-
+<h4 class="text-center ">Timesheet register</h4>
 <div id="calender"></div>
 
 <div id="myModal" class="modal fade" role="dialog">
@@ -15,10 +14,10 @@
                 <h4 class="modal-title"><span id="eventTitle"></span></h4>
             </div>
             <div class="modal-body">
-                <button id="btnDelete" class="btn btn-default btn-sm pull-right">
+                <button id="btnDelete" class="btn btn-danger btn-sm pull-right">
                     <span class="glyphicon glyphicon-remove"></span> Delete
                 </button>
-                <button id="btnEdit" class="btn btn-default btn-sm pull-right" style="margin-right:5px;">
+                <button id="btnEdit" class="btn btn-success btn-sm pull-right" style="margin-right:5px;">
                     <span class="glyphicon glyphicon-pencil"></span> Edit
                 </button>
                 <p id="pDetails"></p>
@@ -66,8 +65,7 @@
                     <textarea id="txtDescription" rows="3" class="form-control"></textarea>
                 </div>
 
-
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 <button type="button" id="btnSave" class="btn btn-success">Save</button>
             </div>
         </div>
@@ -77,6 +75,7 @@
 <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.7.0/fullcalendar.min.css" rel="stylesheet" />
 <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.7.0/fullcalendar.print.css" rel="stylesheet" media="print" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+
 @section Scripts{
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.7.0/fullcalendar.min.js"></script>
