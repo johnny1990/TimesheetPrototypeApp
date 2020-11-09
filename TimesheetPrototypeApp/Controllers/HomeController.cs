@@ -13,6 +13,7 @@ namespace TimesheetPrototypeApp.Controllers
         [Authorize(Roles = "Admin,User")]
         public ActionResult Index()
         {
+            ViewBag.Users = User.Identity.Name;
             return View();
         }
 

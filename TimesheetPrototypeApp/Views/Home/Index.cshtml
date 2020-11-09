@@ -4,6 +4,7 @@
 }
 
 <h4 class="text-center ">Timesheet register</h4>
+
 <div id="calender"></div>
 
 <div id="myModal" class="modal fade" role="dialog">
@@ -40,7 +41,8 @@
                 <input type="hidden" id="hdTimesheetID" value="0" />
                 <div class="form-group">
                     <label>Username</label>
-                    <input type="text" id="txtUsername" class="form-control" />
+                    <input type="text" id="txtUsername" class="form-control" value="@ViewBag.Users" />
+
                 </div>
                 <div class="form-group">
                     <label>Start hour</label>

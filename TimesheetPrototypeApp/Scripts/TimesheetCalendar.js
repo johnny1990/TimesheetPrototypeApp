@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+
     var timesheets = [];
     var selectedEvent = null;
     FetchEventAndRenderCalendar();
@@ -88,7 +89,7 @@
             $.ajax({
                 type: "POST",
                 url: '/Home/DeleteRecord',
-                data: { 'timesheetID': selectedEvent.TimesheetID },
+                data: { 'recID': selectedEvent.timesheetID },
                 success: function (data) {
                     if (data.status) {
                         //Refresh the calender
