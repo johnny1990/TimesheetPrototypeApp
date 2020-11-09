@@ -142,11 +142,11 @@
         }
 
         var data = {
-            TmesheetID: $('#hdTimesheetID').val(),
+            TimesheetID: $('#hdTimesheetID').val(),
             User: $('#txtUsername').val().trim(),
             Start: $('#txtStart').val().trim(),
             End: $('#txtEnd').val().trim(),
-            Description: $('#txtDescription').val(),
+            Description: $('#txtDescription').val().trim(),
 
         }
         SaveEvent(data);

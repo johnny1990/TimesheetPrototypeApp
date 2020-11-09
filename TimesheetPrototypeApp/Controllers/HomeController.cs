@@ -9,7 +9,6 @@ namespace TimesheetPrototypeApp.Controllers
 {
     public class HomeController : Controller
     {
-
         [Authorize(Roles = "Admin,User")]
         public ActionResult Index()
         {
