@@ -21,7 +21,7 @@ namespace TimesheetPrototypeApp.Controllers
         public JsonResult GetAllRecords()
         {
             using (TimesheetEntities dc = new TimesheetEntities())
-            {
+            {   //return timesheets only for authenticated user
                 var events = dc.Timesheets.Where(p=> p.User == User.Identity.Name).ToList();
                 return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
