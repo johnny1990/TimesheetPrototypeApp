@@ -36,7 +36,7 @@
             header: {
                 left: 'prev,next today',
                 center: 'title',
-                right: 'month,basicDay'
+                right: 'month,basicWeek,basicDay,agenda'
             },
             eventLimit: true,
             eventColor: '#378006',
