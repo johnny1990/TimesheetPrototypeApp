@@ -39,6 +39,7 @@ namespace TimesheetPrototypeApp.Controllers
                     var v = dc.Timesheets.Where(a => a.TimesheetID == t.TimesheetID).FirstOrDefault();
                     if (v != null)
                     {
+                        v.ChangeDate = t.ChangeDate;
                         v.User = t.User;
                         v.Start = t.Start;
                         v.End = t.End;

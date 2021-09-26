@@ -12,6 +12,7 @@
                 $.each(data, function (i, v) {
                     timesheets.push({
                         timesheetID: v.TimesheetID,
+                        changeDate: v.ChangeDate,//
                         user: v.User,
                         start: moment(v.Start),
                         end: v.End != null ? moment(v.End) : null,
@@ -58,6 +59,7 @@
             select: function (start, end) {
                 selectedEvent = {
                     timesheetID: 0,
+                    //changeDate: ChangeDate,
                     user: '',
                     start: start,
                     end: end,
@@ -70,6 +72,7 @@
             eventDrop: function (event) {
                 var data = {
                     TimesheetID: event.TimesheetID,
+                    ChangeDate: event.ChangeDate,//
                     User: event.User,
                     Start: event.Start.format('MM/DD/YYYY HH:mm A'),
                     End: event.End != null ? event.End.format('MM/DD/YYYY HH:mm A') : null,
@@ -112,6 +115,7 @@
     function openAddEditForm() {
         if (selectedEvent != null) {
             $('#hdTimesheetID').val(selectedEvent.timesheetID);
+            $('#txtDateTime').val(selectedEvent.changeDate);//
             $('#txtUsername').val(selectedEvent.user);
             $('#txtStart').val(selectedEvent.start.format('MM/DD/YYYY HH:mm A'));
             $('#txtEnd').val(selectedEvent.end != null ? selectedEvent.end.format('MM/DD/YYYY HH:mm A') : '');
@@ -123,8 +127,12 @@
 
     $('#btnSave').click(function () {
         //Validation/
+        if ($('#txtDateTime').val().trim() == "") {
+            alert('Updating datetime required');
+            return;
+        }
         if ($('#txtUsername').val().trim() == "") {
-            alert('Subject required');
+            alert('Username required ');
             return;
         }
         if ($('#txtStart').val().trim() == "") {
@@ -140,20 +148,23 @@
                 return;
             }
         }
-
+        
         var data = {
             TimesheetID: $('#hdTimesheetID').val(),
+            ChangeDate: $('#txtDateTime').val().trim(),
             User: $('#txtUsername').val().trim(),
             Start: $('#txtStart').val().trim(),
             End: $('#txtEnd').val().trim(),
             Description: $('#txtDescription').val().trim(),
-
+            
         }
+
         SaveEvent(data);
 
     })
 
     function SaveEvent(data) {
+      
         $.ajax({
             type: "POST",
             url: 'Home/SaveRecord',

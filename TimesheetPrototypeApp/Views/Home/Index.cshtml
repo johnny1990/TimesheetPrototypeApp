@@ -41,11 +41,11 @@
                 <input type="hidden" id="hdTimesheetID" value="0" />
                 <div class="form-group">
                     <label>Date</label>
-                    <input type="text" id="txtDateTime" class="form-control" value="@DateTime.Now" readonly />
+                    <input type="text" id="txtDateTime" class="form-control" /> @*value="@DateTime.Now"*@ 
                 </div>
                 <div class="form-group">
                     <label>Username</label>
-                    <input type="text" id="txtUsername" class="form-control" value="@User.Identity.Name.ToString()" readonly />
+                    <input type="text" id="txtUsername" class="form-control" /> @*value="@User.Identity.Name.ToString()"*@
                 </div>
                 <div class="form-group">
                     <label>Start hour</label>

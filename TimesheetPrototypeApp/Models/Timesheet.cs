@@ -15,6 +15,7 @@ namespace TimesheetPrototypeApp.Models
     public partial class Timesheet
     {
         public int TimesheetID { get; set; }
+        public Nullable<System.DateTime> ChangeDate { get; set; }
         public string User { get; set; }
         public System.DateTime Start { get; set; }
         public Nullable<System.DateTime> End { get; set; }
