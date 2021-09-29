@@ -12,7 +12,7 @@
                 $.each(data, function (i, v) {
                     timesheets.push({
                         timesheetID: v.TimesheetID,
-                        changeDate: v.ChangeDate,//
+                        changeDate: v.ChangeDate,
                         user: v.User,
                         start: moment(v.Start),
                         end: v.End != null ? moment(v.End) : null,
@@ -59,7 +59,6 @@
             select: function (start, end) {
                 selectedEvent = {
                     timesheetID: 0,
-                    //changeDate: ChangeDate,
                     user: '',
                     start: start,
                     end: end,
@@ -72,7 +71,7 @@
             eventDrop: function (event) {
                 var data = {
                     TimesheetID: event.TimesheetID,
-                    ChangeDate: event.ChangeDate,//
+                    ChangeDate: event.ChangeDate,
                     User: event.User,
                     Start: event.Start.format('MM/DD/YYYY HH:mm A'),
                     End: event.End != null ? event.End.format('MM/DD/YYYY HH:mm A') : null,
@@ -108,14 +107,14 @@
     })
 
     $('#dtp1,#dtp2').datetimepicker({
-        format: 'DD/MM/YYYY HH:mm A'
+        format: 'MM/DD/YYYY HH:mm A'
     });
 
 
     function openAddEditForm() {
         if (selectedEvent != null) {
             $('#hdTimesheetID').val(selectedEvent.timesheetID);
-            $('#txtDateTime').val(selectedEvent.changeDate);//
+            $('#txtDateTime').val(selectedEvent.changeDate);
             $('#txtUsername').val(selectedEvent.user);
             $('#txtStart').val(selectedEvent.start.format('MM/DD/YYYY HH:mm A'));
             $('#txtEnd').val(selectedEvent.end != null ? selectedEvent.end.format('MM/DD/YYYY HH:mm A') : '');

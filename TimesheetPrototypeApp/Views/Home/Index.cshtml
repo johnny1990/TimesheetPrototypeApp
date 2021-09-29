@@ -45,13 +45,13 @@
                 </div>
                 <div class="form-group">
                     <label>Username</label>
-                    <input type="text" id="txtUsername" class="form-control" /> @*value="@User.Identity.Name.ToString()"*@
+                    <input type="text" id="txtUsername" class="form-control" value="@User.Identity.Name"/> 
                 </div>
                 <div class="form-group">
                     <label>Start hour</label>
                     <div class="input-group date" id="dtp1">
                         <input type="text" id="txtStart" class="form-control" />
-                        <button onclick="document.getElementById('txtStart').value = ''">X</button>
+                        @*<button onclick="document.getElementById('txtStart').value = ''">X</button>*@
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
@@ -61,7 +61,7 @@
                     <label>End hour</label>
                     <div class="input-group date" id="dtp2">
                         <input type="text" id="txtEnd" class="form-control" />
-                        <button onclick="document.getElementById('txtEnd').value = ''">X</button>
+                        @*<button onclick="document.getElementById('txtEnd').value = ''">X</button>*@
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
