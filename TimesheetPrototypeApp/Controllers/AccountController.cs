@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
@@ -213,7 +215,35 @@ namespace TimesheetPrototypeApp.Controllers
                 // Send an email with this link
                 string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
                 var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                var senderEmail = new MailAddress("Outlook mail address", "Timesheet App Reset Password");
+                var receiverEmail = new MailAddress(user.Email);
+                var password = "Outlook mail password";
+                var subject = "Reset Password";
+                var body = "Please reset your password by clicking \"" + callbackUrl + "\"";
+                var smtp = new SmtpClient
+                {
+                    Host = "smtp-mail.outlook.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(senderEmail.Address, password)
+                };
+                using (var message = new MailMessage(senderEmail, receiverEmail)
+                {
+                    Subject = subject,
+                    Body = body
+                })
+                    try
+                    {
+                        smtp.Send(message);
+                    }
+                    catch(Exception ex)
+                    {
+                        ex.Message.ToString();
+                    }
+                  
+               
                 return RedirectToAction("ForgotPasswordConfirmation", "Account");
             }
 
