@@ -41,14 +41,19 @@
                 <input type="hidden" id="hdTimesheetID" value="0" />
                 <div class="form-group">
                     <label>Date</label>
-                    <input type="text" id="txtDateTime" class="form-control" /> @*value="@DateTime.Now"*@ 
+                    <div class="input-group date" id="dtp3">
+                        <input type="text" id="txtDateTime" class="form-control" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label>Username</label>
-                    <input type="text" id="txtUsername" class="form-control" value="@User.Identity.Name"/> 
+                    <input type="text" id="txtUsername" class="form-control"/> @*value="@User.Identity.Name"*@
                 </div>
                 <div class="form-group">
-                    <label>Start hour</label>
+                    <label>Start date&hour</label>
                     <div class="input-group date" id="dtp1">
                         <input type="text" id="txtStart" class="form-control" /> 
                         <span class="input-group-addon">
@@ -57,7 +62,7 @@
                     </div>
                 </div>
                 <div class="form-group" id="divEndDate">
-                    <label>End hour</label>
+                    <label>End date&hour</label>
                     <div class="input-group date" id="dtp2">
                         <input type="text" id="txtEnd" class="form-control" />
                         <span class="input-group-addon">
