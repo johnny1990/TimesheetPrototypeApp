@@ -71,7 +71,7 @@
             eventDrop: function (event) {
                 var data = {
                     TimesheetID: event.TimesheetID,
-                    ChangeDate: event.ChangeDate.format('MM/DD/YYYY HH:mm A'),
+                    ChangeDate: event.ChangeDate,//.format('MM/DD/YYYY HH:mm A'),
                     User: event.User,
                     Start: event.Start.format('MM/DD/YYYY HH:mm A'),
                     End: event.End != null ? event.End.format('MM/DD/YYYY HH:mm A') : null,
