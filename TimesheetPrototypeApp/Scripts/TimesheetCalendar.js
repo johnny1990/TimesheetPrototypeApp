@@ -1,5 +1,4 @@
 ﻿$(document).ready(function () {
-
     var timesheets = [];
     var selectedEvent = null;
     FetchEventAndRenderCalendar();
@@ -81,7 +80,7 @@
             }
         })
     }
-
+ 
     $('#btnEdit').click(function () {
         //Open modal dialog for edit event
         openAddEditForm();
@@ -125,7 +124,8 @@
     }
 
     $('#btnSave').click(function () {
-        //Validation/
+        fillDateTimeAndUserName();
+
         if ($('#txtDateTime').val().trim() == "") {
             alert('Updating datetime required');
             return;
@@ -158,9 +158,29 @@
             
         }
 
-        SaveEvent(data);
+            SaveEvent(data);
 
     })
+
+    function fillDateTimeAndUserName() {
+        var currentdate = new Date();
+        var ampm = currentdate.getHours() >= 12 ? 'PM' : 'AM';
+        var datetime = (currentdate.getMonth() + 1) + "/"
+            + currentdate.getDate() + "/"
+            + currentdate.getFullYear() + " "
+            + currentdate.getHours() + ":"
+            + currentdate.getMinutes() + " "
+            + ampm
+
+        var UserName = $('#hdUserName').val().trim();
+
+        if ($('#txtDateTime').val().trim() == "" || $('#txtUsername').val().trim() == "") {
+            $('#txtDateTime').val(datetime);
+            $('#txtUsername').val('mail address');//
+
+           return false;
+        }
+    };
 
     function SaveEvent(data) {
       
